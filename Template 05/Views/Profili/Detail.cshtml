@@ -1,0 +1,17 @@
+@model ProfiloDetailViewModel
+<section class="profilo-info">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+        <div class="col-md-6">
+            @Model.Username
+        </div>
+        <div class="col-md-6">
+            @Model.Password
+        </div>
+        <div class="col-md-12 mt-3">
+            <a asp-controller="Utenti" asp-action="Detail" asp-route-id="@Model.UtenteId"><i class="fas fa-arrow-left"></i> Torna all'utente</a>
+        </div>
+    </div>
+</section>
