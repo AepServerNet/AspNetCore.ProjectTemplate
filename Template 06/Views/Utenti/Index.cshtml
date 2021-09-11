@@ -1,0 +1,28 @@
+@model List<UtenteViewModel>
+<div class="row">
+    <div class="col-md-8">
+        <h1>@ViewData["Title"] <a class="btn btn-outline-primary btn-sm" asp-action="Create"><i class="fa fa-plus"></i> Crea nuovo</a></h1>
+    </div>
+</div>
+
+@foreach (UtenteViewModel utente in Model)
+{
+    <hr>
+    <div class="row course">
+        <div class="col-md-2">
+            @utente.Cognome
+        </div>
+        <div class="col-md-2">
+            @utente.Nome
+        </div>
+        <div class="col-md-3">
+            @utente.Email
+        </div>
+        <div class="col-md-2">
+            @utente.Telefono
+        </div>
+        <div class="col-md-3 d-flex align-items-center">
+        <a class="btn btn-outline-primary" asp-action="Detail" asp-route-id="@utente.Id">Dettaglio</a>
+        </div>
+    </div>
+}

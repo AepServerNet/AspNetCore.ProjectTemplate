@@ -1,0 +1,81 @@
+@model UtenteEditInputModel
+<section class="utente-info">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-9">
+                <h1>@ViewData["Title"]</h1>
+            </div>
+            <div class="col-md-3 d-flex align-items-center">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Salva</button>
+                <button class="btn btn-danger btn-lg ml-3" type="button" data-toggle="modal" data-target="#delete-modal"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" asp-validation-summary="All"></div>
+        </div>
+        <input type="hidden" asp-for="Id">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="form-group">
+                    <label asp-for="Cognome"></label>
+                    <input type="text" asp-for="Cognome" class="form-control" placeholder="Cognome">
+                    <span asp-validation-for="Cognome"></span>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="form-group">
+                    <label asp-for="Nome"></label>
+                    <input type="text" asp-for="Nome" class="form-control" placeholder="Nome">
+                    <span asp-validation-for="Nome"></span>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="form-group">&nbsp;</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input type="text" asp-for="Email" class="form-control" placeholder="Email">
+                    <span asp-validation-for="Email"></span>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="form-group">
+                    <label asp-for="Telefono"></label>
+                    <input type="text" asp-for="Telefono" class="form-control" placeholder="Telefono">
+                    <span asp-validation-for="Telefono"></span>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="form-group">&nbsp;</div>
+            </div>
+        </div>
+    </form>
+    <form method="post" asp-action="Delete" asp-route-id="@Model.Id">
+        <div id="delete-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="delete-modal-title" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="delete-modal-title">Conferma eliminazione</h5>
+                        <button class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Stai per eliminare l'utente e non potrai recuperarlo. Confermi l'eliminazione?</p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button class="btn btn-light" type="button" data-dismiss="modal">Annulla</button>
+                        <button type="submit" class="btn btn-danger">Conferma</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+@section Scripts
+{
+    <partial name="_Validation"></partial>
+}
